@@ -56,11 +56,8 @@ public class Professors implements Comparable<Professors>{
 	public int compareTo(Professors that) {
 			if (this.grade.compareTo(that.grade) == 0) {
 				return this.grade.compareTo(that.grade);
-			} else {
-				return 0;
 			}
+			return 0;
 	}
-	
-	
 	
 }
