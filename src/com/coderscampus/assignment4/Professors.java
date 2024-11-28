@@ -4,9 +4,9 @@ public class Professors implements Comparable<Professors>{
 	private String studentId;
 	private String name;
 	private String course;
-	private String grade;
+	private Integer grade;
 	
-	public Professors (String studentId, String name, String course, String grade) {
+	public Professors (String studentId, String name, String course, Integer grade) {
 		this.studentId = studentId;
 		this.name = name;
 		this.course = course;
@@ -43,21 +43,20 @@ public class Professors implements Comparable<Professors>{
 		this.course = course;
 	}
 
-	public String getGrade() {
+	public Integer getGrade() {
 		return grade;
 	}
 
-	public void setGrade(String grade) {
+	public void setGrade(Integer grade) {
 		this.grade = grade;
 	}
 
-	// compare by grade and sort it to an array then pass it on to ProfessorsService to filewrite.
+	
 	@Override
 	public int compareTo(Professors that) {
-			if (this.grade.compareTo(that.grade) == 0) {
-				return this.grade.compareTo(that.grade);
-			}
-			return 0;
+		if ( that == null) {
+			throw new NullPointerException("Cannot compare to a null professor.");
+		}
+		return that.grade.compareTo(this.grade);
 	}
-	
 }
